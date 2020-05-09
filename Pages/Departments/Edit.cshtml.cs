@@ -86,7 +86,7 @@ namespace MeroUniversity.Pages.Departments
                         return Page();
                     }
                     var dbValues = (Department)databaseEntry.ToObject();
-                    await setDbErrorMessage(dbValues, clientValues, _context);
+                    await SetDbErrorMessage(dbValues, clientValues, _context);
 
                     //Save the current RowVersion so next postback matches 
                     //unless a new concurrency issue happens
@@ -101,7 +101,7 @@ namespace MeroUniversity.Pages.Departments
             return Page();
         }
 
-        private async Task setDbErrorMessage(Department dbValues, 
+        private async Task SetDbErrorMessage(Department dbValues, 
             Department clientValues, SchoolContext context)
         {
             if (dbValues.Name != clientValues.Name)

@@ -26,21 +26,24 @@ namespace MeroUniversity.Pages.Students
         }
 
         [BindProperty]
-        public StudentVM StudentVM { get; set; }
+        public Student Student { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            var emptyStudent = new Student();
 
-            var entry = _context.Add(new Student());
-            entry.CurrentValues.SetValues(StudentVM);
-            await _context.SaveChangesAsync();
-            return RedirectToPage("./Index");
+            if (await TryUpdateModelAsync<Student>(
+                emptyStudent,
+                "student",   // Prefix for form value.
+                s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate))
+            {
+                _context.Students.Add(emptyStudent);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
+            }
+            return Page();
         }
     }
 }

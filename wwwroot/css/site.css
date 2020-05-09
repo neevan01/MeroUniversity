@@ -12,6 +12,26 @@ a {
   color: #0366d6;
 }
 
+.img{
+    height:500px;
+    width:100%;
+}
+.displayLeft {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(0%,-50%);
+    -ms-transform: translate(-0%,-50%)
+}
+
+.displayRight {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translate(0%,-50%);
+    -ms-transform: translate(0%,-50%)
+}
+
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;

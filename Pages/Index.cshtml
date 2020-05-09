@@ -4,38 +4,54 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="row">
-    <div class="col-md-4 ">
-        <div class="row no-gutters border mb-4">
-            <div class="col p-4 mb-4">
-                <p class="card-text">
-                    Mero University is a sample application that demonstrate
-                    how to use the EntityFrameworkCore in an ASP.NET Razor
-                    Pages web app.
-                </p>
+    <div class="container slideShow">
+        <div>
+            <img class="slides img" src="~/images/uni3.jpg" />
+            <img class="slides img" src="~/images/uni1.jpg" />
+            <img class="slides img" src="~/images/uni4.jpg" />
+            <img class="slides img" src="~/images/uni2.jpg" />
+            <div class="row">
+                <div class="col-md-6 ">
+                    <div class="row no-gutters border mb-4">
+                        <div class="col p-4 mb-4">
+                            <p class="card-text">
+                                Mero University is a sample application that demonstrate
+                                how to use the EntityFrameworkCore in an ASP.NET Razor
+                                Pages web app.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row no-gutters border mb-4">
+                        <div class="col p-4 d-flex flex-column">
+                            <p class="card-text mb-auto">
+                                You can downlaod the completed project from the Github also.
+                            </p>
+                            <p>
+                                <a href="https://github.com/neevan01/MeroUniversity" class="stretched-link">See project source code</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </div>       
     </div>
-    <div class="col-md-4">
-        <div class="row no-gutters border mb-4">
-            <div class="col p-4 d-flex flex-column position-static ">
-                <p class="card-text mb-auto">
-                    You can build the application by following the steps in the seies
-                    of the tutorial.
-                </p>                
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="row no-gutters border mb-4">
-            <div class="col p-4 d-flex flex-column">
-                <p class="card-text mb-auto">
-                    You can downlaod the completed project from the Github also.
-                </p>
-                <p>
-                    <a href="https://github.com/neevan01/MeroUniversity" class="stretched-link">See project source code</a>
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
+
+<script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("slides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) { myIndex = 1 }
+        x[myIndex - 1].style.display = "block";
+        setTimeout(carousel, 5000); // Change image every 5 seconds
+    }
+</script>
+
